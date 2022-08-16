@@ -31,28 +31,32 @@ int main()
     freopen("output.txt", "w", stdout);
 #endif
 
-    int n;
-    cin>>n;
-    int l0=0,l1=0,r0=0,r1=0;
-    for(int i=0;i<n;i++){
-        int l,r;
-        cin>>l>>r;
-        if(l==0){
-            l0++;
+    string s;
+    cin>>s;
+    vi arr;
+    vector<char> plus;
+    for(int i=0; i<s.size();i++){
+        if(s[i]!='+'){
+            arr.push_back(s[i]-'0');
         }
         else{
-            l1++;
-        }
-        if(r==0){
-            r0++;
-        }
-        else{
-            r1++;
+            plus.push_back(s[i]);
         }
     }
+    // disp(arr);
+    sort(arr.begin(), arr.end());
+    // disp(arr);
+    // int t_size=arr.size()+plus.size();
+    string ans=s;
+    int arr_count=0;
+    for(int i=0; i<s.size(); i++){
+        if(s[i]!='+'){
 
-    int ans=min(l0,l1)+min(r0,r1);
+        ans[i]=arr[arr_count]+'0';
+        arr_count++;
+        }
 
+    }
     print(ans);
 
 

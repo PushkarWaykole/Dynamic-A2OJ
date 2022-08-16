@@ -33,25 +33,31 @@ int main()
 
     int n;
     cin>>n;
-    int l0=0,l1=0,r0=0,r1=0;
+    vi arr;
     for(int i=0;i<n;i++){
-        int l,r;
-        cin>>l>>r;
-        if(l==0){
-            l0++;
-        }
-        else{
-            l1++;
-        }
-        if(r==0){
-            r0++;
-        }
-        else{
-            r1++;
+        int temp;
+        cin>>temp;
+        arr.pb(temp);
+    }
+    int ans=0;
+    
+    if(arr.size()==0 || arr.size()==1){
+        ans=0;
+    }
+    else{
+        int min=arr[0],max=arr[0];
+        for(int i=1;i<arr.size();i++){
+            if(arr[i]>max || arr[i]<min){
+                ans++;
+                if(arr[i]>max){
+                    max=arr[i];                  
+                }
+                else if (arr[i]<min){
+                    min=arr[i];
+                }
+            }
         }
     }
-
-    int ans=min(l0,l1)+min(r0,r1);
 
     print(ans);
 

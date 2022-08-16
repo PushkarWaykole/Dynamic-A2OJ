@@ -31,28 +31,16 @@ int main()
     freopen("output.txt", "w", stdout);
 #endif
 
-    int n;
-    cin>>n;
-    int l0=0,l1=0,r0=0,r1=0;
-    for(int i=0;i<n;i++){
-        int l,r;
-        cin>>l>>r;
-        if(l==0){
-            l0++;
-        }
-        else{
-            l1++;
-        }
-        if(r==0){
-            r0++;
-        }
-        else{
-            r1++;
-        }
+    vi arr;
+    map<int,int> mpp;
+    for(int i=0;i<4;i++){
+        int temp;
+        cin>>temp;
+        arr.pb(temp);
+        mpp[temp]++;
     }
 
-    int ans=min(l0,l1)+min(r0,r1);
-
+    int ans=4-mpp.size();
     print(ans);
 
 

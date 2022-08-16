@@ -31,29 +31,22 @@ int main()
     freopen("output.txt", "w", stdout);
 #endif
 
-    int n;
-    cin>>n;
-    int l0=0,l1=0,r0=0,r1=0;
-    for(int i=0;i<n;i++){
-        int l,r;
-        cin>>l>>r;
-        if(l==0){
-            l0++;
-        }
-        else{
-            l1++;
-        }
-        if(r==0){
-            r0++;
-        }
-        else{
-            r1++;
-        }
+    string s;
+    cin>>s;
+    map<char,int> mpp;
+
+    for(auto it:s){
+        mpp[it]++;
     }
 
-    int ans=min(l0,l1)+min(r0,r1);
+    if(mpp.size()%2==0){
+        print("CHAT WITH HER!");
+    }
+    else{
+        print("IGNORE HIM!");
+    }
 
-    print(ans);
+
 
 
     
